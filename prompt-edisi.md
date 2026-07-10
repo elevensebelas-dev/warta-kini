@@ -24,9 +24,20 @@ Tugasmu: riset berita aktual hari ini, lalu tulis ulang seluruh edisi.
 
 ## Aturan wajib
 
-- **Jangan ubah** `css/style.css`, struktur HTML, kelas CSS, atau navigasi. Hanya ganti isi teks: judul, standfirst, tanggal, isi artikel, dan daftar sumber.
+- **Jangan ubah** `css/style.css`, struktur HTML, kelas CSS, atau navigasi. Hanya ganti isi teks: judul, standfirst, tanggal, isi artikel, dan daftar sumber. `tentang.html` hanya diperbarui tanggalnya.
 - Setiap artikel: 5–7 paragraf dengan 2 subjudul `<h2>`, ditutup bagian `class="sources"` berisi tautan sumber asli yang benar-benar kamu temukan dari riset (bukan karangan).
-- Perbarui semua tanggal (topbar, byline, `<title>`, banner AI, footer) ke tanggal hari ini dalam format Indonesia, mis. "Jumat, 10 Juli 2026".
+- Perbarui semua tanggal (topbar, byline, `<title>`, banner AI, footer) ke tanggal hari ini dalam format Indonesia, mis. "Jumat, 10 Juli 2026". Byline memakai format lengkap gaya detik: "Jumat, 10 Jul 2026 06:30 WIB" — beri jam berbeda tiap artikel (rentang 05:55–06:30 WIB) dan urutkan daftar "Terkini" dari jam terbaru.
+
+## Elemen halaman yang wajib dipertahankan dan diisi ulang
+
+- **Baris "Topik Hangat"** (`class="trending"`) di index.html: 4 tautan topik terpanas edisi ini.
+- **Label kanal berwarna**: kicker memakai kelas `kanal-nasional`, `kanal-ekonomi`, `kanal-dunia`, `kanal-teknologi`, `kanal-olahraga`, `kanal-sains` sesuai rubrik.
+- **Daftar "Terkini"** (`class="terkini"`) di index.html: 7 artikel dengan jam WIB, urut menurun.
+- **"Sorotan Redaksi"** (`class="populer"`) di sidebar: peringkat 1–5 artikel terpenting edisi ini.
+- **Breadcrumb** (`class="breadcrumb"`) di tiap artikel: `Warta Kini › <Rubrik>`.
+- **Boks "Baca juga"** (`class="baca-juga"`) di tengah tiap artikel: tautan ke satu artikel lain yang paling relevan, judulnya disesuaikan dengan judul baru.
+- **Tag** (`class="article-tags"`): 4–5 tag per artikel sesuai isi baru.
+- **"Terkini Lainnya"** (`class="terkini-lainnya"`) di bawah tiap artikel: 3 tautan ke artikel lain, judul disesuaikan.
 - Pertahankan banner "DITULIS AI" dan disclaimer footer apa adanya (hanya tanggalnya yang diperbarui).
 - Judul `<title>` dan `<meta name="description">` tiap halaman ikut diperbarui sesuai isi baru.
 - Bahasa Indonesia baku jurnalistik; jangan mengarang fakta — semua angka dan klaim harus berasal dari hasil riset.
