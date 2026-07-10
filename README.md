@@ -68,6 +68,33 @@ launchctl kickstart gui/$(id -u)/com.warta-kini.update
 > tidak sleep pada jam terjadwal; jika terlewat, jalankan `./update.sh`
 > manual atau `launchctl kickstart`.
 
+## Arsip edisi
+
+`update.sh` menyimpan snapshot mandiri tiap edisi di `arsip/YYYY-MM-DD/`
+(termasuk CSS dan ilustrasi, jadi bisa dibuka apa adanya). Halaman
+`arsip.html` (menu "Indeks") dibangun ulang otomatis oleh
+`tools/buat_arsip.py` setiap edisi terbit.
+
+## Terpopuler berbasis data kunjungan (GoatCounter)
+
+Semua halaman sudah memuat script penghitung GoatCounter (gratis, tanpa
+iklan, ramah privasi). Dua langkah aktivasi:
+
+1. **Daftar** di https://www.goatcounter.com/signup dengan kode situs
+   **`warta-kini`** (URL-nya harus `warta-kini.goatcounter.com`, sesuai
+   yang tertanam di halaman). Setelah itu statistik langsung tercatat.
+2. **Opsional, untuk peringkat otomatis**: buat API token (Settings →
+   API) dengan izin "Read statistics", lalu simpan:
+
+   ```bash
+   mkdir -p ~/.config/warta-kini
+   echo "TOKEN_ANDA" > ~/.config/warta-kini/goatcounter-token
+   ```
+
+   Setelah token ada, `tools/terpopuler.py` (dipanggil `update.sh`) akan
+   mengganti "Sorotan Redaksi" menjadi "Terpopuler" berdasarkan kunjungan
+   7 hari terakhir. Tanpa token, peringkat pilihan redaksi tetap dipakai.
+
 ## Melihat situs
 
 ```bash

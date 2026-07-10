@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img">
+  <title>Ilustrasi rubrik Teknologi: cip prosesor dan jalur sirkuit</title>
+  <rect width="800" height="450" fill="#f2eef7"/>
+  <g stroke="#6b3fa0" stroke-width="3" fill="none" stroke-opacity="0.5">
+    <path d="M120 100 H255 V180 M120 225 H240 M130 350 H260 V270 M545 180 V115 H690 M560 225 H680 M545 270 V345 H660"/>
+  </g>
+  <g fill="#6b3fa0" fill-opacity="0.5">
+    <circle cx="120" cy="100" r="9"/>
+    <circle cx="120" cy="225" r="9"/>
+    <circle cx="130" cy="350" r="9"/>
+    <circle cx="690" cy="115" r="9"/>
+    <circle cx="680" cy="225" r="9"/>
+    <circle cx="660" cy="345" r="9"/>
+  </g>
+  <rect x="265" y="130" width="270" height="190" rx="14" fill="#6b3fa0" fill-opacity="0.12" stroke="#6b3fa0" stroke-width="5"/>
+  <rect x="305" y="168" width="190" height="114" rx="8" fill="#faf9f6" stroke="#6b3fa0" stroke-width="3"/>
+  <g stroke="#6b3fa0" stroke-width="6" stroke-linecap="round">
+    <path d="M300 110 V130 M350 110 V130 M400 110 V130 M450 110 V130 M500 110 V130"/>
+    <path d="M300 320 V340 M350 320 V340 M400 320 V340 M450 320 V340 M500 320 V340"/>
+  </g>
+  <g fill="#6b3fa0">
+    <circle cx="352" cy="204" r="8"/>
+    <circle cx="400" cy="240" r="8"/>
+    <circle cx="448" cy="204" r="8"/>
+  </g>
+  <g stroke="#6b3fa0" stroke-width="3" fill="none">
+    <path d="M352 204 L400 240 L448 204"/>
+  </g>
+  <circle cx="400" cy="240" r="16" fill="none" stroke="#b3261e" stroke-width="3" stroke-dasharray="3 5"/>
+</svg>

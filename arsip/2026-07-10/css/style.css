@@ -1,0 +1,803 @@
+/* Warta Kini — gaya editorial koran */
+
+:root {
+  color-scheme: light dark;
+  --ink: #1a1a1a;
+  --ink-soft: #4a4a4a;
+  --ink-muted: #757575;
+  --paper: #faf9f6;
+  --surface: #ffffff;
+  --rule: #d9d5cc;
+  --rule-strong: #1a1a1a;
+  --accent: #b3261e;
+  --accent-dark: #8c1d17;
+  --font-serif: "Georgia", "Times New Roman", serif;
+  --font-sans: -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-serif);
+  line-height: 1.65;
+}
+
+a {
+  color: inherit;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.container {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* ---- Masthead ---- */
+
+.topbar {
+  background: var(--ink);
+  color: #f2f0ea;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+}
+
+.topbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+}
+
+.topbar strong {
+  color: #fff;
+}
+
+.masthead {
+  text-align: center;
+  padding: 1.75rem 1rem 1.25rem;
+  border-bottom: 3px double var(--rule-strong);
+}
+
+.masthead .brand {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: clamp(2.2rem, 6vw, 3.4rem);
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  display: inline-block;
+  line-height: 1.1;
+}
+
+.masthead .brand .dot {
+  color: var(--accent);
+}
+
+.masthead .tagline {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: var(--ink-muted);
+  margin-top: 0.35rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.mainnav {
+  border-bottom: 1px solid var(--rule);
+  background: var(--surface);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.mainnav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.mainnav a {
+  display: block;
+  padding: 0.7rem 0.9rem;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--ink-soft);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.mainnav a:hover,
+.mainnav a[aria-current="true"] {
+  color: var(--accent);
+}
+
+/* ---- Notice AI ---- */
+
+.ai-notice {
+  background: #f3efe4;
+  border-bottom: 1px solid var(--rule);
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+}
+
+.ai-notice .container {
+  padding-top: 0.55rem;
+  padding-bottom: 0.55rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
+}
+
+.ai-notice .badge {
+  background: var(--ink);
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 0.1rem 0.45rem;
+  border-radius: 2px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* ---- Topik hangat (pola kompas.com "Trending") ---- */
+
+.trending {
+  border-bottom: 1px solid var(--rule);
+  background: var(--surface);
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+}
+
+.trending .container {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding-top: 0.55rem;
+  padding-bottom: 0.55rem;
+  flex-wrap: wrap;
+}
+
+.trending .label {
+  font-weight: 700;
+  font-size: 0.7rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.trending a {
+  text-decoration: none;
+  color: var(--ink-soft);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 0.15rem 0.7rem;
+}
+
+.trending a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ---- Label kanal berwarna (pola kompas.com) ---- */
+
+.kicker.kanal-nasional { color: #b3261e; }
+.kicker.kanal-ekonomi { color: #1b6e3c; }
+.kicker.kanal-dunia { color: #1a5c9e; }
+.kicker.kanal-teknologi { color: #6b3fa0; }
+.kicker.kanal-olahraga { color: #c05310; }
+.kicker.kanal-sains { color: #0e7376; }
+
+/* ---- Ilustrasi SVG per rubrik ---- */
+
+figure.ilustrasi {
+  margin: 0;
+}
+
+figure.ilustrasi img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--rule);
+}
+
+figure.ilustrasi figcaption {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  color: var(--ink-muted);
+  padding-top: 0.3rem;
+}
+
+.lead-story figure.ilustrasi {
+  margin: 0.8rem 0 0.9rem;
+}
+
+/* ---- Front page grid ---- */
+
+.front {
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+}
+
+.front-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .front-grid {
+    grid-template-columns: 7fr 5fr;
+  }
+}
+
+.kicker {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.lead-story {
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 1.5rem;
+}
+
+.lead-story h1 {
+  font-size: clamp(1.7rem, 4vw, 2.5rem);
+  line-height: 1.15;
+  margin: 0.4rem 0 0.75rem;
+}
+
+.lead-story h1 a,
+.story h2 a,
+.brief h3 a {
+  text-decoration: none;
+}
+
+.lead-story h1 a:hover,
+.story h2 a:hover,
+.brief h3 a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.lead-story .standfirst {
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+}
+
+.byline {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: var(--ink-muted);
+  margin-top: 0.7rem;
+}
+
+.byline .author {
+  color: var(--ink-soft);
+  font-weight: 600;
+}
+
+.story {
+  padding: 1.4rem 0;
+  border-bottom: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: minmax(6.5rem, 9.5rem) 1fr;
+  column-gap: 1.1rem;
+}
+
+.story > figure.ilustrasi {
+  grid-column: 1;
+  grid-row: 1 / span 4;
+  align-self: start;
+}
+
+.story > .kicker,
+.story > h2,
+.story > p,
+.story > .byline {
+  grid-column: 2;
+}
+
+.story:last-child {
+  border-bottom: 0;
+}
+
+.story h2 {
+  font-size: 1.3rem;
+  line-height: 1.25;
+  margin: 0.35rem 0 0.5rem;
+}
+
+.story p {
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
+/* Sidebar briefs */
+
+.sidebar {
+  border-top: 3px solid var(--rule-strong);
+}
+
+@media (min-width: 768px) {
+  .sidebar {
+    border-top: 0;
+    border-left: 1px solid var(--rule);
+    padding-left: 2rem;
+  }
+}
+
+.sidebar .section-title {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.9rem 0 0.5rem;
+  border-bottom: 2px solid var(--rule-strong);
+}
+
+.brief {
+  padding: 1.1rem 0;
+  border-bottom: 1px dotted var(--rule);
+}
+
+.brief:last-child {
+  border-bottom: 0;
+}
+
+.brief h3 {
+  font-size: 1.05rem;
+  line-height: 1.3;
+  margin: 0.25rem 0 0.35rem;
+}
+
+.brief p {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+}
+
+/* ---- Berita terkini (pola detik.com, jam WIB) ---- */
+
+.terkini {
+  margin-top: 1.6rem;
+  border-top: 3px solid var(--rule-strong);
+}
+
+.terkini .section-title,
+.populer .section-title {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.9rem 0 0.5rem;
+}
+
+.terkini ul {
+  list-style: none;
+}
+
+.terkini li {
+  display: flex;
+  gap: 0.9rem;
+  align-items: baseline;
+  padding: 0.55rem 0;
+  border-bottom: 1px dotted var(--rule);
+}
+
+.terkini time {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  color: var(--ink-muted);
+  white-space: nowrap;
+  min-width: 4.6rem;
+}
+
+.terkini .kicker {
+  min-width: 5.6rem;
+}
+
+.terkini a {
+  text-decoration: none;
+  font-size: 0.95rem;
+  line-height: 1.35;
+}
+
+.terkini a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ---- Sorotan redaksi berperingkat (pola "Terpopuler" detik/kompas) ---- */
+
+.populer {
+  margin-top: 1.4rem;
+  border-top: 3px solid var(--rule-strong);
+}
+
+.populer ol {
+  list-style: none;
+  counter-reset: rank;
+}
+
+.populer li {
+  counter-increment: rank;
+  display: flex;
+  gap: 0.85rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px dotted var(--rule);
+}
+
+.populer li::before {
+  content: counter(rank);
+  font-family: var(--font-serif);
+  font-size: 1.7rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--rule);
+  min-width: 1.4rem;
+}
+
+.populer li:first-child::before {
+  color: var(--accent);
+}
+
+.populer a {
+  text-decoration: none;
+  font-size: 0.93rem;
+  line-height: 1.35;
+}
+
+.populer a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ---- Article page ---- */
+
+.article-page {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 2.25rem 1.25rem 3rem;
+}
+
+.article-page header h1 {
+  font-size: clamp(1.7rem, 4.5vw, 2.4rem);
+  line-height: 1.15;
+  margin: 0.4rem 0 0.8rem;
+}
+
+.article-page .standfirst {
+  font-size: 1.1rem;
+  color: var(--ink-soft);
+  margin-bottom: 0.9rem;
+}
+
+.article-page .byline {
+  padding-bottom: 1.1rem;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 1.5rem;
+}
+
+.article-page figure.ilustrasi {
+  margin: 0 0 1.5rem;
+}
+
+.article-body p {
+  margin-bottom: 1.1rem;
+  font-size: 1.02rem;
+}
+
+.article-body p:first-of-type::first-letter {
+  font-size: 3.1em;
+  font-weight: 700;
+  float: left;
+  line-height: 0.85;
+  padding-right: 0.08em;
+  padding-top: 0.05em;
+}
+
+.article-body h2 {
+  font-size: 1.25rem;
+  margin: 1.6rem 0 0.6rem;
+}
+
+/* Breadcrumb kanal (pola detik "detikNews > Berita") */
+
+.breadcrumb {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: var(--ink-muted);
+  margin-bottom: 0.6rem;
+}
+
+.breadcrumb a {
+  color: var(--ink-muted);
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.breadcrumb .sep {
+  margin: 0 0.35rem;
+  color: var(--rule);
+}
+
+/* Boks "Baca juga" di tengah artikel (pola detik/kompas) */
+
+.baca-juga {
+  border-left: 3px solid var(--accent);
+  background: #f6f2e9;
+  padding: 0.7rem 1rem;
+  margin: 1.2rem 0;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+}
+
+.baca-juga .label {
+  font-weight: 700;
+  font-size: 0.7rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.baca-juga a {
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.baca-juga a:hover {
+  text-decoration: underline;
+}
+
+/* Deretan tag di akhir artikel (pola detik/kompas) */
+
+.article-tags {
+  margin-top: 1.6rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+  font-family: var(--font-sans);
+}
+
+.article-tags .label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-right: 0.2rem;
+}
+
+.article-tags span:not(.label) {
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 0.12rem 0.65rem;
+  background: var(--surface);
+}
+
+/* "Terkini lainnya" di bawah artikel (pola kompas) */
+
+.terkini-lainnya {
+  margin-top: 2rem;
+  border-top: 3px solid var(--rule-strong);
+}
+
+.terkini-lainnya h2 {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.9rem 0 0.4rem;
+}
+
+.terkini-lainnya ul {
+  list-style: none;
+}
+
+.terkini-lainnya li {
+  padding: 0.5rem 0;
+  border-bottom: 1px dotted var(--rule);
+}
+
+.terkini-lainnya .kicker {
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.terkini-lainnya a {
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.terkini-lainnya a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.sources {
+  margin-top: 2.25rem;
+  padding: 1.1rem 1.25rem;
+  background: #f3efe4;
+  border-left: 3px solid var(--ink);
+  font-family: var(--font-sans);
+  font-size: 0.84rem;
+}
+
+.sources h2 {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.sources ul {
+  list-style: none;
+}
+
+.sources li {
+  margin-bottom: 0.3rem;
+}
+
+.sources a {
+  color: var(--accent-dark);
+  word-break: break-word;
+}
+
+.backlink {
+  display: inline-block;
+  margin-top: 1.75rem;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent-dark);
+  text-decoration: none;
+}
+
+.backlink:hover {
+  text-decoration: underline;
+}
+
+/* ---- Footer ---- */
+
+footer.site-footer {
+  border-top: 3px double var(--rule-strong);
+  margin-top: 1rem;
+  padding: 1.75rem 0 2.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  padding-bottom: 1.4rem;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 1.1rem;
+}
+
+@media (min-width: 640px) {
+  .footer-grid {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+}
+
+.footer-grid h2 {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 0.5rem;
+}
+
+.footer-grid ul {
+  list-style: none;
+}
+
+.footer-grid li {
+  margin-bottom: 0.3rem;
+}
+
+.footer-grid a {
+  color: var(--ink-muted);
+  text-decoration: none;
+}
+
+.footer-grid a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.footer-legal {
+  text-align: center;
+}
+
+.footer-legal p + p {
+  margin-top: 0.4rem;
+}
+
+/* Edisi malam */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #e8e5dd;
+    --ink-soft: #c2beb4;
+    --ink-muted: #928e84;
+    --paper: #171613;
+    --surface: #1f1e1a;
+    --rule: #3a3831;
+    --rule-strong: #e8e5dd;
+    --accent: #e05d54;
+    --accent-dark: #e8837c;
+  }
+
+  .topbar {
+    background: #000;
+    color: #c2beb4;
+  }
+
+  .ai-notice,
+  .baca-juga,
+  .sources {
+    background: #24221c;
+  }
+
+  .ai-notice .badge {
+    background: var(--ink);
+    color: #171613;
+  }
+
+  figure.ilustrasi img {
+    opacity: 0.92;
+  }
+
+  .kicker.kanal-nasional { color: #e57373; }
+  .kicker.kanal-ekonomi { color: #6fbf8b; }
+  .kicker.kanal-dunia { color: #6ea8dd; }
+  .kicker.kanal-teknologi { color: #b08fd8; }
+  .kicker.kanal-olahraga { color: #e09a5f; }
+  .kicker.kanal-sains { color: #5fb8bb; }
+}

@@ -24,9 +24,12 @@ ARCHIVE_DIR="$SITE_DIR/arsip/$STAMP"
 
 mkdir -p "$LOG_DIR" "$ARCHIVE_DIR"
 
-# --- 1. Arsipkan edisi berjalan sebelum ditimpa ---
-cp "$SITE_DIR/index.html" "$ARCHIVE_DIR/" 2>/dev/null || true
+# --- 1. Arsipkan edisi berjalan sebelum ditimpa (snapshot mandiri) ---
+cp "$SITE_DIR/index.html" "$SITE_DIR/tentang.html" "$SITE_DIR/favicon.svg" "$ARCHIVE_DIR/" 2>/dev/null || true
 cp -R "$SITE_DIR/artikel" "$ARCHIVE_DIR/" 2>/dev/null || true
+mkdir -p "$ARCHIVE_DIR/css" "$ARCHIVE_DIR/gambar"
+cp "$SITE_DIR/css/style.css" "$ARCHIVE_DIR/css/" 2>/dev/null || true
+cp "$SITE_DIR"/gambar/*.svg "$ARCHIVE_DIR/gambar/" 2>/dev/null || true
 
 echo "[$(date '+%F %T')] Mulai pembaruan edisi $STAMP (model: $WARTA_MODEL)" | tee -a "$LOG_FILE"
 
@@ -47,6 +50,10 @@ if ! grep -q "$TAHUN" "$SITE_DIR/index.html"; then
   exit 1
 fi
 echo "[$(date '+%F %T')] Edisi baru selesai ditulis. Arsip: arsip/$STAMP" | tee -a "$LOG_FILE"
+
+# --- 2b. Bangun ulang indeks arsip & peringkat Terpopuler (deterministik) ---
+python3 "$SITE_DIR/tools/buat_arsip.py" >> "$LOG_FILE" 2>&1 || true
+python3 "$SITE_DIR/tools/terpopuler.py" >> "$LOG_FILE" 2>&1 || true
 
 # --- 3. Upload ke GitHub Pages ---
 if [ -d "$SITE_DIR/.git" ]; then

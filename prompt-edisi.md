@@ -42,6 +42,8 @@ Tugasmu: riset berita aktual hari ini, lalu tulis ulang seluruh edisi.
 - **Meta OG di `<head>`** tiap halaman: perbarui `og:title` dan `og:description` agar sama dengan `<title>` dan meta description baru; `og:image` artikel mengikuti rubrik (`gambar/og/<rubrik>.png`) dan tidak perlu diganti kecuali berita utama pindah rubrik (index.html). Favicon, canonical, dan tag lain jangan diubah.
 - **`feed.xml`**: tulis ulang seluruh `<item>` sesuai 7 artikel edisi baru (judul, link, guid dengan sufiks `#YYYY-MM-DD` tanggal edisi, pubDate berformat RFC-822 `+0700` sesuai jam WIB masing-masing artikel, category rubrik, description = standfirst). Perbarui juga `<lastBuildDate>`.
 - **`sitemap.xml`**: perbarui semua `<lastmod>` ke tanggal edisi (kecuali tentang.html).
+- **JANGAN sentuh**: `arsip.html`, folder `arsip/`, folder `tools/` (dikelola script, bukan AI), tag `<script data-goatcounter...>` di akhir tiap halaman, dan tautan "Indeks" di navigasi/footer.
+- Jika bagian sidebar berjudul "Terpopuler" (bukan "Sorotan Redaksi"), biarkan judul itu — isinya tetap kamu perbarui dengan 5 artikel edisi baru sebagai nilai awal; script `tools/terpopuler.py` akan menimpanya dengan peringkat data kunjungan nyata setelahnya.
 - Pertahankan banner "DITULIS AI" dan disclaimer footer apa adanya (hanya tanggalnya yang diperbarui).
 - Judul `<title>` dan `<meta name="description">` tiap halaman ikut diperbarui sesuai isi baru.
 - Bahasa Indonesia baku jurnalistik; jangan mengarang fakta — semua angka dan klaim harus berasal dari hasil riset.
