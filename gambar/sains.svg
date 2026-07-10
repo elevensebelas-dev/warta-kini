@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img">
+  <title>Ilustrasi rubrik Sains: labu kimia dan orbit atom</title>
+  <rect width="800" height="450" fill="#eaf4f4"/>
+  <g fill="none" stroke="#0e7376" stroke-width="3" stroke-opacity="0.45">
+    <ellipse cx="400" cy="225" rx="330" ry="120" transform="rotate(-18 400 225)"/>
+    <ellipse cx="400" cy="225" rx="330" ry="120" transform="rotate(18 400 225)"/>
+  </g>
+  <g fill="#0e7376">
+    <circle cx="112" cy="140" r="10"/>
+    <circle cx="700" cy="310" r="10"/>
+    <circle cx="688" cy="128" r="10"/>
+  </g>
+  <g transform="translate(400 240)">
+    <path d="M-34 -140 H34 M-22 -140 V-58 L-96 84 a26 26 0 0 0 22 40 H74 a26 26 0 0 0 22 -40 L22 -58 V-140"
+          fill="#f7fbfb" stroke="#0e7376" stroke-width="6" stroke-linejoin="round"/>
+    <path d="M-64 22 h128 L96 84 a26 26 0 0 1 -22 40 H-74 a26 26 0 0 1 -22 -40 Z" fill="#0e7376" fill-opacity="0.5"/>
+    <circle cx="-18" cy="60" r="9" fill="#f7fbfb"/>
+    <circle cx="22" cy="88" r="7" fill="#f7fbfb"/>
+    <circle cx="4" cy="8" r="8" fill="#0e7376" fill-opacity="0.5"/>
+    <circle cx="-10" cy="-24" r="6" fill="#0e7376" fill-opacity="0.4"/>
+  </g>
+  <g stroke="#b3261e" stroke-width="4" fill="none" stroke-linecap="round">
+    <path d="M580 110 q14 -22 0 -44 q-14 -22 0 -44"/>
+    <path d="M620 110 q14 -22 0 -44 q-14 -22 0 -44"/>
+  </g>
+</svg>

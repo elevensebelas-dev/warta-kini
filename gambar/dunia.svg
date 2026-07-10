@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img">
+  <title>Ilustrasi rubrik Dunia: bola dunia dengan garis lintang dan jalur penerbangan</title>
+  <rect width="800" height="450" fill="#eef3f8"/>
+  <g stroke="#1a5c9e" stroke-opacity="0.12" stroke-width="1">
+    <path d="M0 90 H800 M0 180 H800 M0 270 H800 M0 360 H800"/>
+  </g>
+  <g transform="translate(400 235)">
+    <circle r="150" fill="#f7fafc" stroke="#1a5c9e" stroke-width="4"/>
+    <ellipse rx="150" ry="60" fill="none" stroke="#1a5c9e" stroke-width="2" stroke-opacity="0.55"/>
+    <ellipse rx="150" ry="110" fill="none" stroke="#1a5c9e" stroke-width="2" stroke-opacity="0.35"/>
+    <ellipse rx="60" ry="150" fill="none" stroke="#1a5c9e" stroke-width="2" stroke-opacity="0.55"/>
+    <ellipse rx="110" ry="150" fill="none" stroke="#1a5c9e" stroke-width="2" stroke-opacity="0.35"/>
+    <line x1="-150" y1="0" x2="150" y2="0" stroke="#1a5c9e" stroke-width="2" stroke-opacity="0.55"/>
+    <line x1="0" y1="-150" x2="0" y2="150" stroke="#1a5c9e" stroke-width="2" stroke-opacity="0.55"/>
+    <path d="M-95 -55 q30 -18 55 -8 q28 11 20 34 q-7 20 -38 22 q-34 3 -45 -18 q-8 -18 8 -30 Z" fill="#1a5c9e" fill-opacity="0.75"/>
+    <path d="M25 20 q26 -14 50 -2 q22 12 12 36 q-11 24 -40 18 q-30 -6 -34 -26 q-3 -16 12 -26 Z" fill="#1a5c9e" fill-opacity="0.55"/>
+    <path d="M-40 62 q18 -10 34 0 q14 9 5 24 q-10 15 -30 10 q-20 -5 -21 -18 q-1 -10 12 -16 Z" fill="#1a5c9e" fill-opacity="0.4"/>
+  </g>
+  <g fill="none" stroke="#b3261e" stroke-width="3" stroke-dasharray="2 9" stroke-linecap="round">
+    <path d="M150 330 Q 400 30 650 300"/>
+    <path d="M190 130 Q 420 330 680 150"/>
+  </g>
+  <g fill="#b3261e">
+    <circle cx="150" cy="330" r="7"/>
+    <circle cx="650" cy="300" r="7"/>
+    <circle cx="190" cy="130" r="7"/>
+    <circle cx="680" cy="150" r="7"/>
+  </g>
+</svg>

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img">
+  <title>Ilustrasi rubrik Ekonomi: grafik pasar dan koin rupiah</title>
+  <rect width="800" height="450" fill="#eef6f0"/>
+  <g stroke="#1b6e3c" stroke-opacity="0.12" stroke-width="1">
+    <path d="M100 60 V390 M240 60 V390 M380 60 V390 M520 60 V390 M660 60 V390"/>
+    <path d="M60 120 H740 M60 210 H740 M60 300 H740"/>
+  </g>
+  <g fill="#1b6e3c" fill-opacity="0.28">
+    <rect x="130" y="250" width="56" height="140"/>
+    <rect x="230" y="290" width="56" height="100"/>
+    <rect x="330" y="215" width="56" height="175"/>
+    <rect x="430" y="255" width="56" height="135"/>
+    <rect x="530" y="175" width="56" height="215"/>
+  </g>
+  <path d="M110 300 L215 240 L320 275 L425 185 L530 215 L650 110"
+        fill="none" stroke="#1b6e3c" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#1b6e3c">
+    <circle cx="110" cy="300" r="8"/>
+    <circle cx="215" cy="240" r="8"/>
+    <circle cx="320" cy="275" r="8"/>
+    <circle cx="425" cy="185" r="8"/>
+    <circle cx="530" cy="215" r="8"/>
+  </g>
+  <path d="M650 110 l-34 -4 m34 4 l-8 33" stroke="#b3261e" stroke-width="6" stroke-linecap="round" fill="none"/>
+  <circle cx="650" cy="110" r="9" fill="#b3261e"/>
+  <g transform="translate(672 320)">
+    <circle r="62" fill="#f3efd9" stroke="#1b6e3c" stroke-width="5"/>
+    <circle r="46" fill="none" stroke="#1b6e3c" stroke-width="2" stroke-dasharray="4 6"/>
+    <text x="0" y="17" text-anchor="middle" font-family="Georgia, serif" font-size="46" font-weight="bold" fill="#1b6e3c">Rp</text>
+  </g>
+</svg>

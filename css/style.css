@@ -210,6 +210,30 @@ a:focus-visible {
 .kicker.kanal-olahraga { color: #c05310; }
 .kicker.kanal-sains { color: #0e7376; }
 
+/* ---- Ilustrasi SVG per rubrik ---- */
+
+figure.ilustrasi {
+  margin: 0;
+}
+
+figure.ilustrasi img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--rule);
+}
+
+figure.ilustrasi figcaption {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  color: var(--ink-muted);
+  padding-top: 0.3rem;
+}
+
+.lead-story figure.ilustrasi {
+  margin: 0.8rem 0 0.9rem;
+}
+
 /* ---- Front page grid ---- */
 
 .front {
@@ -283,6 +307,22 @@ a:focus-visible {
 .story {
   padding: 1.4rem 0;
   border-bottom: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: minmax(6.5rem, 9.5rem) 1fr;
+  column-gap: 1.1rem;
+}
+
+.story > figure.ilustrasi {
+  grid-column: 1;
+  grid-row: 1 / span 4;
+  align-self: start;
+}
+
+.story > .kicker,
+.story > h2,
+.story > p,
+.story > .byline {
+  grid-column: 2;
 }
 
 .story:last-child {
@@ -465,6 +505,10 @@ a:focus-visible {
   padding-bottom: 1.1rem;
   border-bottom: 1px solid var(--rule);
   margin-bottom: 1.5rem;
+}
+
+.article-page figure.ilustrasi {
+  margin: 0 0 1.5rem;
 }
 
 .article-body p {

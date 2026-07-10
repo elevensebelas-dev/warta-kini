@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img">
+  <title>Ilustrasi rubrik Nasional: Monumen Nasional dan gugusan kepulauan</title>
+  <rect width="800" height="450" fill="#faeeec"/>
+  <g stroke="#b3261e" stroke-opacity="0.25" stroke-width="3" fill="none">
+    <circle cx="400" cy="150" r="70"/>
+    <circle cx="400" cy="150" r="110"/>
+    <circle cx="400" cy="150" r="150"/>
+  </g>
+  <g transform="translate(400 150)">
+    <polygon points="0,-96 10,-70 -10,-70" fill="#b3261e"/>
+    <path d="M-9 -70 L-22 130 H22 L9 -70 Z" fill="#f6efe0" stroke="#b3261e" stroke-width="5" stroke-linejoin="round"/>
+    <rect x="-52" y="130" width="104" height="22" fill="#b3261e" fill-opacity="0.85"/>
+    <rect x="-78" y="152" width="156" height="16" fill="#b3261e" fill-opacity="0.55"/>
+  </g>
+  <g fill="#b3261e">
+    <ellipse cx="120" cy="378" rx="46" ry="12" fill-opacity="0.7"/>
+    <ellipse cx="222" cy="398" rx="30" ry="9" fill-opacity="0.5"/>
+    <ellipse cx="330" cy="382" rx="56" ry="13" fill-opacity="0.75"/>
+    <ellipse cx="470" cy="400" rx="38" ry="10" fill-opacity="0.5"/>
+    <ellipse cx="580" cy="380" rx="62" ry="14" fill-opacity="0.7"/>
+    <ellipse cx="700" cy="398" rx="34" ry="9" fill-opacity="0.5"/>
+  </g>
+  <g stroke="#b3261e" stroke-width="2" stroke-opacity="0.35">
+    <path d="M60 340 H740" stroke-dasharray="3 8"/>
+  </g>
+</svg>
