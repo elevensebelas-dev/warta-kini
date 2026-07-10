@@ -3,6 +3,9 @@
 Situs berita statis eksperimental. Seluruh artikel ditulis oleh Claude (AI)
 berdasarkan riset berita aktual, dengan daftar sumber di tiap artikel.
 
+- **Situs live**: https://elevensebelas-dev.github.io/warta-kini/
+- **Repo**: https://github.com/elevensebelas-dev/warta-kini
+
 ## Struktur
 
 ```
@@ -25,7 +28,12 @@ Jalankan manual:
 
 Script akan: (1) mengarsipkan edisi berjalan ke `arsip/`, (2) menjalankan
 `claude -p` headless yang riset berita hari ini via WebSearch lalu menulis
-ulang seluruh halaman, (3) memverifikasi hasil dan menulis log ke `logs/`.
+ulang seluruh halaman, (3) memverifikasi hasil, lalu (4) meng-upload ke
+GitHub Pages lewat `git commit` + `git push`.
+
+**Autentikasi**: script memakai login langganan Claude CLI (OAuth), bukan
+API key — `ANTHROPIC_API_KEY` sengaja di-unset di dalam script, jadi setiap
+run memakai kuota langganan Claude Anda, tanpa tagihan API terpisah.
 
 Override model atau lokasi CLI:
 
@@ -55,8 +63,10 @@ Menjalankan job terjadwal sekali secara paksa (untuk uji):
 launchctl kickstart gui/$(id -u)/com.warta-kini.update
 ```
 
-> Catatan biaya: setiap pembaruan menjalankan satu sesi Claude CLI
-> (default model Sonnet) dan memakai kuota/biaya API akun Anda.
+> Catatan: setiap pembaruan menjalankan satu sesi Claude CLI (default model
+> Sonnet) dan memakai kuota langganan Claude Anda. Mac harus menyala dan
+> tidak sleep pada jam terjadwal; jika terlewat, jalankan `./update.sh`
+> manual atau `launchctl kickstart`.
 
 ## Melihat situs
 
