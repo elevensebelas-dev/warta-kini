@@ -1,6 +1,7 @@
 /* Warta Kini — gaya editorial koran */
 
 :root {
+  color-scheme: light dark;
   --ink: #1a1a1a;
   --ink-soft: #4a4a4a;
   --ink-muted: #757575;
@@ -757,4 +758,46 @@ footer.site-footer {
 
 .footer-legal p + p {
   margin-top: 0.4rem;
+}
+
+/* Edisi malam */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #e8e5dd;
+    --ink-soft: #c2beb4;
+    --ink-muted: #928e84;
+    --paper: #171613;
+    --surface: #1f1e1a;
+    --rule: #3a3831;
+    --rule-strong: #e8e5dd;
+    --accent: #e05d54;
+    --accent-dark: #e8837c;
+  }
+
+  .topbar {
+    background: #000;
+    color: #c2beb4;
+  }
+
+  .ai-notice,
+  .baca-juga,
+  .sources {
+    background: #24221c;
+  }
+
+  .ai-notice .badge {
+    background: var(--ink);
+    color: #171613;
+  }
+
+  figure.ilustrasi img {
+    opacity: 0.92;
+  }
+
+  .kicker.kanal-nasional { color: #e57373; }
+  .kicker.kanal-ekonomi { color: #6fbf8b; }
+  .kicker.kanal-dunia { color: #6ea8dd; }
+  .kicker.kanal-teknologi { color: #b08fd8; }
+  .kicker.kanal-olahraga { color: #e09a5f; }
+  .kicker.kanal-sains { color: #5fb8bb; }
 }

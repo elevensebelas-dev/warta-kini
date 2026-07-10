@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://elevensebelas-dev.github.io/warta-kini/sitemap.xml

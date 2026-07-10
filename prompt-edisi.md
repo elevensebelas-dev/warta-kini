@@ -39,6 +39,9 @@ Tugasmu: riset berita aktual hari ini, lalu tulis ulang seluruh edisi.
 - **Tag** (`class="article-tags"`): 4–5 tag per artikel sesuai isi baru.
 - **"Terkini Lainnya"** (`class="terkini-lainnya"`) di bawah tiap artikel: 3 tautan ke artikel lain, judul disesuaikan.
 - **Ilustrasi SVG** (`figure class="ilustrasi"`, file di `gambar/*.svg`): aset tetap per rubrik — JANGAN dihapus, dipindah, atau diubah; alt dan figcaption tetap generik ("Ilustrasi rubrik X"), tidak perlu diubah tiap edisi. Jika berita utama pindah rubrik, ganti hanya `src` figur lead di index.html ke SVG rubrik yang sesuai (dunia/ekonomi/teknologi/olahraga/sains/nasional).
+- **Meta OG di `<head>`** tiap halaman: perbarui `og:title` dan `og:description` agar sama dengan `<title>` dan meta description baru; `og:image` artikel mengikuti rubrik (`gambar/og/<rubrik>.png`) dan tidak perlu diganti kecuali berita utama pindah rubrik (index.html). Favicon, canonical, dan tag lain jangan diubah.
+- **`feed.xml`**: tulis ulang seluruh `<item>` sesuai 7 artikel edisi baru (judul, link, guid dengan sufiks `#YYYY-MM-DD` tanggal edisi, pubDate berformat RFC-822 `+0700` sesuai jam WIB masing-masing artikel, category rubrik, description = standfirst). Perbarui juga `<lastBuildDate>`.
+- **`sitemap.xml`**: perbarui semua `<lastmod>` ke tanggal edisi (kecuali tentang.html).
 - Pertahankan banner "DITULIS AI" dan disclaimer footer apa adanya (hanya tanggalnya yang diperbarui).
 - Judul `<title>` dan `<meta name="description">` tiap halaman ikut diperbarui sesuai isi baru.
 - Bahasa Indonesia baku jurnalistik; jangan mengarang fakta — semua angka dan klaim harus berasal dari hasil riset.
