@@ -91,6 +91,8 @@ halaman = f'''<!DOCTYPE html>
     <li><a href="artikel/semifinal-piala-dunia.html">Olahraga</a></li>
     <li><a href="artikel/iklim-2026.html">Sains</a></li>
     <li><a href="artikel/sim-face-recognition.html">Nasional</a></li>
+    <li><a href="artikel/opini.html">Opini</a></li>
+    <li><a href="cari.html">Cari</a></li>
     <li><a href="arsip.html" aria-current="true">Indeks</a></li>
     <li><a href="tentang.html">Tentang</a></li>
   </ul>

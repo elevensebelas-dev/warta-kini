@@ -25,20 +25,26 @@ ARCHIVE_DIR="$SITE_DIR/arsip/$STAMP"
 mkdir -p "$LOG_DIR" "$ARCHIVE_DIR"
 
 # --- 1. Arsipkan edisi berjalan sebelum ditimpa (snapshot mandiri) ---
-cp "$SITE_DIR/index.html" "$SITE_DIR/tentang.html" "$SITE_DIR/favicon.svg" "$ARCHIVE_DIR/" 2>/dev/null || true
+cp "$SITE_DIR/index.html" "$SITE_DIR/tentang.html" "$SITE_DIR/favicon.svg" \
+   "$SITE_DIR/apple-touch-icon.png" "$ARCHIVE_DIR/" 2>/dev/null || true
 cp -R "$SITE_DIR/artikel" "$ARCHIVE_DIR/" 2>/dev/null || true
 mkdir -p "$ARCHIVE_DIR/css" "$ARCHIVE_DIR/gambar"
 cp "$SITE_DIR/css/style.css" "$ARCHIVE_DIR/css/" 2>/dev/null || true
 cp "$SITE_DIR"/gambar/*.svg "$ARCHIVE_DIR/gambar/" 2>/dev/null || true
 
-# Audio hanya untuk edisi berjalan — lepas pemutarnya dari salinan arsip
+# Rapikan snapshot arsip: lepas pemutar audio (audio hanya untuk edisi
+# berjalan) dan arahkan tautan berkas situs-wide ke URL langsung.
 python3 - "$ARCHIVE_DIR" <<'PY' 2>/dev/null || true
 import pathlib, re, sys
-for p in (pathlib.Path(sys.argv[1]) / 'artikel').glob('*.html'):
-    t = p.read_text()
-    b = re.sub(r'\n?\s*<div class="audio-artikel">.*?</div>\n', '\n', t, flags=re.S)
-    if b != t:
-        p.write_text(b)
+SITUS = 'https://elevensebelas-dev.github.io/warta-kini/'
+akar = pathlib.Path(sys.argv[1])
+for p in [*akar.glob('*.html'), *(akar / 'artikel').glob('*.html')]:
+    t = asli = p.read_text()
+    t = re.sub(r'\n?\s*<div class="audio-artikel">.*?</div>\n', '\n', t, flags=re.S)
+    for berkas in ('feed.xml', 'cari.html', 'arsip.html'):
+        t = re.sub(rf'href="(?:\.\./)?{re.escape(berkas)}"', f'href="{SITUS}{berkas}"', t)
+    if t != asli:
+        p.write_text(t)
 PY
 
 echo "[$(date '+%F %T')] Mulai pembaruan edisi $STAMP (model: $WARTA_MODEL)" | tee -a "$LOG_FILE"
@@ -64,6 +70,7 @@ echo "[$(date '+%F %T')] Edisi baru selesai ditulis. Arsip: arsip/$STAMP" | tee 
 # --- 2b. Audio artikel, indeks arsip, peringkat Terpopuler (deterministik) ---
 python3 "$SITE_DIR/tools/buat_audio.py" >> "$LOG_FILE" 2>&1 || true
 python3 "$SITE_DIR/tools/buat_arsip.py" >> "$LOG_FILE" 2>&1 || true
+python3 "$SITE_DIR/tools/buat_indeks.py" >> "$LOG_FILE" 2>&1 || true
 python3 "$SITE_DIR/tools/terpopuler.py" >> "$LOG_FILE" 2>&1 || true
 
 # --- 3. Upload ke GitHub Pages ---
@@ -83,6 +90,9 @@ if [ -d "$SITE_DIR/.git" ]; then
 else
   echo "[$(date '+%F %T')] Repo git belum ada — upload dilewati." | tee -a "$LOG_FILE"
 fi
+
+# --- 4. Sebarkan ringkasan edisi (no-op bila kredensial belum dipasang) ---
+python3 "$SITE_DIR/tools/kirim_telegram.py" >> "$LOG_FILE" 2>&1 || true
 
 echo "[$(date '+%F %T')] Selesai. Log: $LOG_FILE" | tee -a "$LOG_FILE"
 

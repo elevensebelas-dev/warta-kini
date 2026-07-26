@@ -210,6 +210,24 @@ a:focus-visible {
 .kicker.kanal-teknologi { color: #6b3fa0; }
 .kicker.kanal-olahraga { color: #c05310; }
 .kicker.kanal-sains { color: #0e7376; }
+.kicker.kanal-opini { color: #3f5464; }
+
+/* Penanda opini — kolom analisis, bukan berita lurus */
+
+.disclaimer-opini {
+  border: 1px solid var(--rule);
+  border-left: 3px solid #3f5464;
+  background: var(--surface);
+  padding: 0.8rem 1rem;
+  margin-bottom: 1.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+}
+
+.disclaimer-opini strong {
+  color: var(--ink);
+}
 
 /* ---- Ilustrasi SVG per rubrik ---- */
 
@@ -480,6 +498,89 @@ figure.ilustrasi figcaption {
 .populer a:hover {
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+
+/* ---- Halaman pencarian arsip ---- */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.cari-form {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin: 1.4rem 0 0.9rem;
+}
+
+.cari-form input,
+.cari-form select {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  padding: 0.6rem 0.8rem;
+}
+
+.cari-form input {
+  flex: 1 1 18rem;
+  min-width: 0;
+}
+
+.cari-form input:focus-visible,
+.cari-form select:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.cari-status {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: var(--ink-muted);
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--rule-strong);
+}
+
+.cari-hasil {
+  list-style: none;
+}
+
+.cari-hasil li {
+  padding: 0.95rem 0;
+  border-bottom: 1px dotted var(--rule);
+}
+
+.cari-hasil a {
+  display: block;
+  font-size: 1.08rem;
+  line-height: 1.3;
+  text-decoration: none;
+  margin: 0.2rem 0 0.3rem;
+}
+
+.cari-hasil a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.cari-hasil p {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.cari-hasil .meta {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  color: var(--ink-muted);
+  margin-top: 0.25rem;
 }
 
 /* ---- Article page ---- */

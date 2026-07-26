@@ -93,6 +93,36 @@ python3 tools/buat_audio.py
 `arsip.html` (menu "Indeks") dibangun ulang otomatis oleh
 `tools/buat_arsip.py` setiap edisi terbit.
 
+## Pencarian arsip
+
+`tools/buat_indeks.py` memindai edisi berjalan dan seluruh snapshot di
+`arsip/`, lalu menulis `indeks.json`. Halaman `cari.html` membacanya di
+sisi peramban — pencarian multi-kata dan filter rubrik, tanpa server.
+
+## Kolom Opini AI
+
+`artikel/opini.html` adalah kolom analisis yang menghubungkan beberapa
+berita edisi itu. Ditandai jelas sebagai opini mesin lewat boks
+`disclaimer-opini`, dan tidak memuat rekomendasi investasi.
+
+## Distribusi ke Telegram
+
+`tools/kirim_telegram.py` mengirim ringkasan tiap edisi ke channel/grup
+Telegram. Tanpa kredensial, script dilewati diam-diam. Aktivasi:
+
+1. Buat bot lewat [@BotFather](https://t.me/BotFather), salin tokennya.
+2. Buat channel/grup, tambahkan bot itu sebagai admin, lalu catat chat id
+   (untuk channel publik cukup `@namachannel`).
+3. Simpan keduanya:
+
+   ```bash
+   mkdir -p ~/.config/warta-kini
+   echo "TOKEN_BOT_ANDA" > ~/.config/warta-kini/telegram-token
+   echo "@namachannel"   > ~/.config/warta-kini/telegram-chat
+   ```
+
+Uji tanpa menunggu jadwal: `python3 tools/kirim_telegram.py`
+
 ## Terpopuler berbasis data kunjungan (GoatCounter)
 
 Semua halaman sudah memuat script penghitung GoatCounter (gratis, tanpa

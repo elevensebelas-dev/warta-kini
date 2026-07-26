@@ -21,6 +21,7 @@ Tugasmu: riset berita aktual hari ini, lalu tulis ulang seluruh edisi.
    - `artikel/semifinal-piala-dunia.html` (Olahraga)
    - `artikel/iklim-2026.html` (Sains)
    - `artikel/sim-face-recognition.html` (Nasional)
+   - `artikel/opini.html` (Opini — kolom analisis, lihat aturan khusus di bawah)
 
 ## Aturan wajib
 
@@ -43,8 +44,9 @@ Tugasmu: riset berita aktual hari ini, lalu tulis ulang seluruh edisi.
 - **`feed.xml`**: tulis ulang seluruh `<item>` sesuai 7 artikel edisi baru (judul, link, guid dengan sufiks `#YYYY-MM-DD` tanggal edisi, pubDate berformat RFC-822 `+0700` sesuai jam WIB masing-masing artikel, category rubrik, description = standfirst). Perbarui juga `<lastBuildDate>`.
 - **`sitemap.xml`**: perbarui semua `<lastmod>` ke tanggal edisi (kecuali tentang.html).
 - **Boks "Sekilas"** (`section class="sekilas"`) di tiap artikel, tepat sebelum `<div class="article-body">`: WAJIB ada, isi 3 poin inti berita edisi baru — masing-masing satu kalimat utuh berisi fakta konkret (angka, nama, tanggal), bukan teaser. Jangan mengulang standfirst kata per kata.
+- **Kolom Opini** (`artikel/opini.html`): satu tulisan analisis yang MENGHUBUNGKAN dua atau lebih berita edisi ini dan mengajukan argumen — bukan rangkuman ulang. Wajib: kicker `kanal-opini`, byline "Kolom Analisis — Claude (AI)" jam 06:40 WIB, boks `disclaimer-opini` dipertahankan apa adanya, serta ilustrasi `gambar/opini.svg`. Jangan memberi rekomendasi investasi, jangan mengklaim otoritas, dan tetap dasarkan tiap angka pada artikel edisi ini. Tampilkan juga sebagai kartu `story` di index.html dan entri teratas daftar "Terkini".
 - **Kotak "Angka Hari Ini"** (`section class="angka"`) di sidebar index.html: isi 4 baris angka penting edisi ini (mis. IHSG, kurs rupiah, suhu, nilai proyeksi). Pakai `class="naik"` + `▲` atau `class="turun"` + `▼` hanya bila arah perubahannya memang disebut di artikel; baris tanpa arah cukup nilainya saja. Semua angka harus berasal dari artikel edisi ini.
-- **JANGAN sentuh**: `arsip.html`, folder `arsip/`, folder `audio/`, folder `tools/` (dikelola script, bukan AI), blok `<div class="audio-artikel">` (dibuat ulang otomatis oleh `tools/buat_audio.py`), tag `<script data-goatcounter...>` di akhir tiap halaman, dan tautan "Indeks" di navigasi/footer.
+- **JANGAN sentuh**: `arsip.html`, `cari.html`, `indeks.json`, folder `arsip/`, folder `audio/`, folder `tools/` (dikelola script, bukan AI), blok `<div class="audio-artikel">` (dibuat ulang otomatis oleh `tools/buat_audio.py`), tag `<script data-goatcounter...>` di akhir tiap halaman, serta tautan "Cari" dan "Indeks" di navigasi/footer.
 - Jika bagian sidebar berjudul "Terpopuler" (bukan "Sorotan Redaksi"), biarkan judul itu — isinya tetap kamu perbarui dengan 5 artikel edisi baru sebagai nilai awal; script `tools/terpopuler.py` akan menimpanya dengan peringkat data kunjungan nyata setelahnya.
 - Pertahankan banner "DITULIS AI" dan disclaimer footer apa adanya (hanya tanggalnya yang diperbarui).
 - Judul `<title>` dan `<meta name="description">` tiap halaman ikut diperbarui sesuai isi baru.

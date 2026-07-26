@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img">
+  <title>Ilustrasi rubrik Opini: pena, kutipan, dan lembar naskah</title>
+  <rect width="800" height="450" fill="#eef1f3"/>
+  <g stroke="#3f5464" stroke-opacity="0.14" stroke-width="1">
+    <path d="M0 110 H800 M0 175 H800 M0 240 H800 M0 305 H800 M0 370 H800"/>
+  </g>
+
+  <g transform="rotate(-6 300 235)">
+    <rect x="176" y="96" width="248" height="286" fill="#f8fafb" stroke="#3f5464" stroke-width="4"/>
+    <g stroke="#3f5464" stroke-opacity="0.4" stroke-width="7" stroke-linecap="round">
+      <path d="M212 168 H388 M212 202 H388 M212 236 H352 M212 270 H388 M212 304 H316"/>
+    </g>
+  </g>
+
+  <text x="470" y="212" font-family="Georgia, serif" font-size="200" font-weight="bold"
+        fill="#3f5464" fill-opacity="0.22">&#8220;</text>
+
+  <g transform="translate(556 132) rotate(38)">
+    <path d="M0 0 h34 v196 l-17 42 -17 -42 Z" fill="#f8fafb" stroke="#3f5464" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M0 0 h34 v-46 h-34 Z" fill="#3f5464"/>
+    <path d="M0 196 h34 l-17 42 Z" fill="#b3261e"/>
+    <line x1="17" y1="16" x2="17" y2="188" stroke="#3f5464" stroke-width="3" stroke-opacity="0.5"/>
+  </g>
+
+  <circle cx="596" cy="372" r="9" fill="#b3261e" fill-opacity="0.75"/>
+  <circle cx="628" cy="392" r="6" fill="#b3261e" fill-opacity="0.5"/>
+</svg>
