@@ -68,6 +68,24 @@ launchctl kickstart gui/$(id -u)/com.warta-kini.update
 > tidak sleep pada jam terjadwal; jika terlewat, jalankan `./update.sh`
 > manual atau `launchctl kickstart`.
 
+## Audio artikel (text-to-speech)
+
+`tools/buat_audio.py` membuat MP3 tiap artikel memakai suara Indonesia
+bawaan macOS (**Damayanti**) via `say`, lalu dikonversi dengan `ffmpeg`
+(24 kbps mono) — sepenuhnya offline, tanpa layanan berbayar. Pemutar
+"Dengarkan artikel" disisipkan otomatis beserta durasinya.
+
+Artikel yang teksnya tidak berubah dilewati (hash di `audio/.hash.json`).
+Satu edisi ≈ 4,7 MB; audio hanya untuk edisi berjalan — pemutarnya
+otomatis dilepas dari salinan arsip agar edisi lama tidak menautkan audio
+yang keliru.
+
+Jalankan manual:
+
+```bash
+python3 tools/buat_audio.py
+```
+
 ## Arsip edisi
 
 `update.sh` menyimpan snapshot mandiri tiap edisi di `arsip/YYYY-MM-DD/`

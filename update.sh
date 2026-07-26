@@ -31,6 +31,16 @@ mkdir -p "$ARCHIVE_DIR/css" "$ARCHIVE_DIR/gambar"
 cp "$SITE_DIR/css/style.css" "$ARCHIVE_DIR/css/" 2>/dev/null || true
 cp "$SITE_DIR"/gambar/*.svg "$ARCHIVE_DIR/gambar/" 2>/dev/null || true
 
+# Audio hanya untuk edisi berjalan — lepas pemutarnya dari salinan arsip
+python3 - "$ARCHIVE_DIR" <<'PY' 2>/dev/null || true
+import pathlib, re, sys
+for p in (pathlib.Path(sys.argv[1]) / 'artikel').glob('*.html'):
+    t = p.read_text()
+    b = re.sub(r'\n?\s*<div class="audio-artikel">.*?</div>\n', '\n', t, flags=re.S)
+    if b != t:
+        p.write_text(b)
+PY
+
 echo "[$(date '+%F %T')] Mulai pembaruan edisi $STAMP (model: $WARTA_MODEL)" | tee -a "$LOG_FILE"
 
 # --- 2. Tulis edisi baru dengan Claude CLI ---
@@ -51,7 +61,8 @@ if ! grep -q "$TAHUN" "$SITE_DIR/index.html"; then
 fi
 echo "[$(date '+%F %T')] Edisi baru selesai ditulis. Arsip: arsip/$STAMP" | tee -a "$LOG_FILE"
 
-# --- 2b. Bangun ulang indeks arsip & peringkat Terpopuler (deterministik) ---
+# --- 2b. Audio artikel, indeks arsip, peringkat Terpopuler (deterministik) ---
+python3 "$SITE_DIR/tools/buat_audio.py" >> "$LOG_FILE" 2>&1 || true
 python3 "$SITE_DIR/tools/buat_arsip.py" >> "$LOG_FILE" 2>&1 || true
 python3 "$SITE_DIR/tools/terpopuler.py" >> "$LOG_FILE" 2>&1 || true
 
